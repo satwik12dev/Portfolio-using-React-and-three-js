@@ -16,6 +16,15 @@ An interactive **3D personal portfolio** built with **React, Vite, and Three.js*
 - [📄 License](#-license)
 
 ---
+---
+
+## 🌐 Live Demo
+
+You can view the portfolio here:  
+➡️ [Satwik Saxena Portfolio Live Link](https://satwiksaxena1217.web.app/) 
+
+---
+
 
 ## ✨ Overview
 This project serves as a **personal portfolio website** that integrates **3D visuals** with clean UI components.  
