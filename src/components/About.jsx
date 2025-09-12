@@ -1,11 +1,14 @@
 import React from "react";
-import {Tilt} from "react-tilt";
+import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { services } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { fadeIn, textVariant } from "../utils/motion";
+import profileImg from "../assets/f2.png";
+
+
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
@@ -38,23 +41,40 @@ const ServiceCard = ({ index, title, icon }) => (
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+      <motion.div
+        variants={textVariant()}
+        className="flex flex-col md:flex-row items-center md:items-start justify-between w-full"
+      >
+        {/* Left side: text */}
+        <div className="flex-1">
+          <p className={styles.sectionSubText}>Introduction</p>
+          <h2 className={styles.sectionHeadText}>Overview.</h2>
+
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className="mt-6 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          >
+            I'm a skilled software developer with experience in Java and
+            JavaScript, and expertise in frameworks like React, Node.js, and
+            Three.js. I'm a quick learner and collaborate closely with clients
+            to create efficient, scalable, and user-friendly solutions that
+            solve real-world problems. Let's work together to bring your ideas
+            to life!
+          </motion.p>
+        </div>
+
+        {/* Right side: image */}
+        <motion.img
+          src={profileImg}
+          alt="profile"
+          className="mt-6 md:mt-0 md:ml-10 w-80 h-80 object-cover shadow-lg rounded-[20px]
+             transition-transform duration-500 ease-in-out hover:scale-110"
+        />
+
       </motion.div>
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a skilled software developer with experience in Java and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
-
-      <div className='mt-20 flex flex-wrap gap-10'>
+      {/* Services cards */}
+      <div className="mt-20 flex flex-wrap gap-10 justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

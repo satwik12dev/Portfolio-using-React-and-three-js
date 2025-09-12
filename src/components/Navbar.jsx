@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa"; // 👈 icons
+import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -23,12 +23,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX
-        } w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-primary" : "bg-transparent"
-        }`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
+        scrolled ? "bg-primary" : "bg-transparent"
+      }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        
         {/* Left side logo + text */}
         <div className="flex items-center gap-2">
           <Link
@@ -41,11 +40,12 @@ const Navbar = () => {
           >
             <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
             <p className="text-white text-[18px] font-bold cursor-pointer">
-              Satwik <span className="sm:block hidden">| Full Stack Developer</span>
+              Satwik{" "}
+              <span className="sm:block hidden">| Full Stack Developer</span>
             </p>
           </Link>
 
-          {/* 👇 Social icons (moved OUTSIDE Link) */}
+          {/* Social icons */}
           <span className="flex gap-3 ml-4">
             <a
               href="https://github.com/satwik12dev"
@@ -66,10 +66,11 @@ const Navbar = () => {
             </a>
 
             <a
-              href="/Resume2.docx" 
+              href="/Resume2.docx"
               rel="noopener noreferrer"
               target="_blank"
-              className="text-white hover:text-green-400 text-xl">
+              className="text-white hover:text-green-400 text-xl"
+            >
               <FaDownload />
             </a>
           </span>
@@ -80,8 +81,9 @@ const Navbar = () => {
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${active === nav.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
+              className={`${
+                active === nav.title ? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
@@ -99,15 +101,17 @@ const Navbar = () => {
           />
 
           <div
-            className={`${!toggle ? "hidden" : "flex"
-              } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            className={`${
+              !toggle ? "hidden" : "flex"
+            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-secondary"
-                    }`}
+                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                    active === nav.title ? "text-white" : "text-secondary"
+                  }`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(nav.title);
@@ -117,6 +121,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+
           </div>
         </div>
       </div>

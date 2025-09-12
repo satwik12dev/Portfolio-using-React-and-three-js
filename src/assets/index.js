@@ -21,19 +21,19 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import threejs from "./tech/three.png";
 import kubernetes from "./tech/kubernetes.png";
+import  SpringBoot from "./tech/sprin_boot.png";
 
 
 import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
+import shopify from "./file.png";
 import starbucks from "./image.png";
 import tesla from "./truck.png";
 
 import carrent from "./Ezytranship.png";
-import jobit from "./app.png";
-import tripguide from "./tripguide.png";
-
+import jobit from "./cat.png";
+import tripguide  from "./filehider.png";
 export {
   logo,
   backend,
@@ -65,4 +65,5 @@ export {
   jobit,
   tripguide,
   kubernetes,
+  SpringBoot,
 };

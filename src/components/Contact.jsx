@@ -29,6 +29,13 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // JavaScript validation for required fields
+    if (!form.name || !form.email || !form.message) {
+      alert("❌ Please fill in all fields before submitting.");
+      return;
+    }
+
     setLoading(true);
 
     emailjs
@@ -56,15 +63,13 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error("EmailJS error:", error);
-          alert("Something went wrong. Please try again.");
+          alert("❌ Something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -86,10 +91,11 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="What's your good name?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your email</span>
+            <span className='text-white font-medium mb-4'>Your Email</span>
             <input
               type='email'
               name='email'
@@ -97,6 +103,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="What's your email address?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
@@ -108,6 +115,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder='What do you want to say?'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
 

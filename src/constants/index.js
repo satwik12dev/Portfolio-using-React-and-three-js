@@ -1,3 +1,4 @@
+import { tiledLights } from "three/examples/jsm/tsl/lighting/TiledLightsNode.js";
 import {
   mobile,
   backend,
@@ -11,6 +12,7 @@ import {
   nodejs,
   mongodb,
   git,
+  shopify,
   docker,
   meta,
   starbucks,
@@ -20,16 +22,30 @@ import {
   java,
   kubernetes,
   jobit,
+  tripguide,
+  SpringBoot,
 } from "../assets";
+import { color } from "framer-motion";
 
 export const navLinks = [
   {
     id: "about",
     title: "About",
   },
+
   {
     id: "work",
     title: "Work",
+  },
+
+  {
+    id:"tech",
+    title:"Tech",
+  },
+
+  {
+    id:"mywork",
+    title:"Projects",
   },
 
   {
@@ -92,11 +108,11 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
+    name: "Vite",
     icon: threejs,
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
   },
   {
@@ -104,9 +120,13 @@ const technologies = [
     icon: kubernetes,
   },
   {
-    name: "docker",
+    name: "Docker",
     icon: docker,
   },
+  {
+    name:"Spring Boot",
+    icon:SpringBoot,
+  }
 ];
 
 const experiences = [
@@ -136,19 +156,20 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
-  // {
-  //   title: "Web Developer",
-  //   company_name: "Shopify",
-  //   icon: shopify,
-  //   iconBg: "#383E56",
-  //   date: "Jan 2022 - Jan 2023",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
+  {
+    title: "File Hider App using Java SMTP JDBC & Encryption via OTP",
+    company_name: "College Project",
+    icon: shopify,
+    iconBg: "#383E56",
+    date: "Aug 2025 - Sep 2025",
+    points: [
+      "Designed and developed a Command Line application in Java for securely hiding and managing files.",
+      "Implemented SMTP functionality to enable secure Email OTP Verification For Login and Signup with the help of javax mail.",
+      "Using JDBC for database connectivity to handle files operation i.e show, hidden, open, unide ",
+      "Applied encryption techniques to protect sensitive files and ensure secure storage.",
+      "Tested and optimized the application for reliability, performance, and security."
+    ],
+  },
   // {
   //   title: "Full stack Developer",
   //   company_name: "Meta",
@@ -214,7 +235,7 @@ const projects = [
     source_code_link: "https://github.com/satwik12dev/BookingWebApplication.git",
   },
   {
-    name: "Cat and Dog Image Classifier Using CNN & DL",
+    name: "Cat and Dog Image Classification Using CNN & DL",
     description:
       "It is an AI model that automatically identifies whether an image contains a cat or a dog. It uses machine learning techniques to classify images with high accuracy.",
       tags: [
@@ -234,27 +255,35 @@ const projects = [
     image: jobit,
     source_code_link: "https://github.com/satwik12dev/Image-Classification-of-cat--and-dog-using-CNN-DL.git",
   },
-  // {
-  //   name: "Trip Guide",
-  //   description:
-  //     "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-  //   tags: [
-  //     {
-  //       name: "nextjs",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "supabase",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "css",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: tripguide,
-  //   source_code_link: "https://github.com/",
-  // },
+  {
+    name: "File Hider App using Java SMTP JDBC & Encryption via OTP",
+    description:
+      "A Java-based Command Line application that securely hides, encrypts, and manages files. Integrates SMTP for secure notifications and uses MySQL for data storage, with Maven for project management.",
+    tags: [
+      {
+        name: "Java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "SMTP",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "pink-text-gradient",
+      },
+      {
+        name:"Maven",
+        color : "white-text-gradient",
+      },
+      {
+        name:"Database Management System",
+        color:"green-text-gradient",
+      },
+    ],
+    image: tripguide,
+    source_code_link: "https://github.com/satwik12dev/File-Hider.git",
+},
 ];
 
 export { services, technologies, experiences, testimonials, projects };

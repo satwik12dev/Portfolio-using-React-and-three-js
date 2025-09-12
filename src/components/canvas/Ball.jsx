@@ -1,57 +1,47 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import {
-  Decal,
-  Float,
-  OrbitControls,
-  Preload,
-  useTexture,
-} from "@react-three/drei";
-
+import React, { Suspense, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Preload, useTexture } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const FloatingIcon = ({ imgUrl }) => {
+  const meshRef = useRef();
+  const [texture] = useTexture([imgUrl]);
+
+  // Floating effect (gentle up & down)
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.position.y = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
+    }
+  });
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial
-          color='#fff8eb'
-          polygonOffset
-          polygonOffsetFactor={-5}
-          flatShading
-        />
-        <Decal
-          position={[0, 0, 1]}
-          rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1}
-          map={decal}
-          flatShading
-        />
+    <>
+      {/* Bright light from below */}
+      <pointLight position={[0, -2, 3]} intensity={4} color="#ffffff" />
+
+      {/* Soft ambient light to cover all angles */}
+      <ambientLight intensity={1.2} />
+
+      {/* Icon plane */}
+      <mesh ref={meshRef} scale={2.5} position={[0, 0.5, 0]}>
+        <planeGeometry args={[2, 2]} />
+        <meshStandardMaterial map={texture} transparent />
       </mesh>
-    </Float>
+    </>
   );
 };
 
-const BallCanvas = ({ icon }) => {
+const FloatingIconCanvas = ({ icon }) => {
   return (
-    <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
+    <Canvas dpr={[1, 2]} gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
+        {/* Disable zoom & rotation */}
+        <OrbitControls enableZoom={false} enableRotate={false} />
+        <FloatingIcon imgUrl={icon} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
 };
 
-export default BallCanvas;
+export default FloatingIconCanvas;
