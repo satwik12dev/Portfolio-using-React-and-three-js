@@ -4,6 +4,11 @@ An interactive **3D personal portfolio** built with **React, Vite, and Three.js*
 
 ---
 
+## 🔗 Live Demo
+Check it out here: [My Portfolio](https://satwiksaxena-30fb9.web.app/)
+
+---
+
 ## 📌 Table of Contents
 - [✨ Overview](#-overview)
 - [🌟 Features](#-features)
