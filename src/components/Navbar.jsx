@@ -25,6 +25,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Dynamic color: hue based on scroll position (0–360 degrees)
+  const hue = (scrollProgress * 3.6) % 360;
+  const progressColor = `hsl(${hue}, 100%, 50%)`;
+
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-4 fixed top-0 z-50 transition-all duration-300 ${
@@ -33,8 +37,12 @@ const Navbar = () => {
     >
       {/* Scroll Progress Bar */}
       <div
-        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 shadow-[0_0_10px_#00f7ff] transition-all duration-200"
-        style={{ width: `${scrollProgress}%` }}
+        className="absolute top-0 left-0 h-[3px] shadow-[0_0_10px_rgba(0,0,0,0.4)] transition-all duration-150"
+        style={{
+          width: `${scrollProgress}%`,
+          background: `linear-gradient(90deg, ${progressColor}, #ffffff)`,
+          boxShadow: `0 0 10px ${progressColor}`,
+        }}
       ></div>
 
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -103,7 +111,6 @@ const Navbar = () => {
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
-              {/* underline hover effect */}
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </li>
           ))}

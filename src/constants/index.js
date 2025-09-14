@@ -132,7 +132,7 @@ const technologies = [
 const experiences = [
   {
     title: "Image classification of cats and dog",
-    company_name: "College Project",
+    company_name: "AI Intern Project",
     icon: starbucks,
     iconBg: "#383E56",
     date: "June 2025 - August 2025",
@@ -145,7 +145,7 @@ const experiences = [
   },
   {
     title: "EzyTranship: Web application for booking commercial vehicles",
-    company_name: "Internship Project",
+    company_name: "College Project",
     icon: tesla,
     iconBg: "#E6DEDD",
     date: "Jan 2024 - july 2025",
@@ -158,7 +158,7 @@ const experiences = [
   },
   {
     title: "File Hider App using Java SMTP JDBC & Encryption via OTP",
-    company_name: "College Project",
+    company_name: "Personal Project",
     icon: shopify,
     iconBg: "#383E56",
     date: "Aug 2025 - Sep 2025",
