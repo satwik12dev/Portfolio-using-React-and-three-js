@@ -74,7 +74,7 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()}>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          My Projects.
+          My Projects Links.
         </h2>
       </motion.div>
 

@@ -4,9 +4,8 @@ import { motion } from "framer-motion";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
-import { styles } from "../styles"; // ✅ make sure styles file exists
-import { textVariant } from "../utils/motion"; // ✅ motion helper
-
+import { styles } from "../styles"; 
+import { textVariant } from "../utils/motion";
 const Tech = () => {
   return (
     <>
