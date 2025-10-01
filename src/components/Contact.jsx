@@ -30,7 +30,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // JavaScript validation for required fields
     if (!form.name || !form.email || !form.message) {
       alert("Please fill in all fields before submitting.");
       return;

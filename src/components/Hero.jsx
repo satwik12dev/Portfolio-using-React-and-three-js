@@ -45,10 +45,11 @@ const Hero = () => {
                 'I build <span class="text-purple-300">interactive interfaces</span>',
                 'I develop <span class="text-green-300">web applications</span>',
                 'I design <span class="text-pink-300">CLI tools</span>',
+                'A <span class="text-cyan-300">DSA</span> Learner',
               ]}
-              typeSpeed={70}
-              backSpeed={40}
-              backDelay={1500}
+              typeSpeed={100}
+              backSpeed={70}
+              backDelay={1000}
               loop
               smartBackspace
               showCursor={true}

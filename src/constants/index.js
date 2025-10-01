@@ -32,15 +32,14 @@ export const navLinks = [
     id: "about",
     title: "About",
   },
+  {
+    id:"tech",
+    title:"Tech",
+  },
 
   {
     id: "work",
     title: "Work",
-  },
-
-  {
-    id:"tech",
-    title:"Tech",
   },
 
   {
@@ -188,7 +187,7 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Satwik proved me wrong.",
+      "I thought it was impossible to make a website as beautiful as our product",
     name: "Sara Lee",
     designation: "CFO",
     company: "Acme Co",
