@@ -30,9 +30,8 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // JavaScript validation for required fields
     if (!form.name || !form.email || !form.message) {
-      alert("❌ Please fill in all fields before submitting.");
+      alert("Please fill in all fields before submitting.");
       return;
     }
 
@@ -52,7 +51,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("✅ Thank you. I will get back to you as soon as possible.");
+          alert("Thank you. I will get back to you as soon as possible.");
 
           setForm({
             name: "",

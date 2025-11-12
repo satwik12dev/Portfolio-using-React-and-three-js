@@ -9,26 +9,44 @@ import { logo, menu, close } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setScrolled(scrollTop > 100);
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrolledPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrolledPercent);
+      setScrolled(scrollTop > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Dynamic color: hue based on scroll position (0–360 degrees)
+  const hue = (scrollProgress * 3.6) % 360;
+  const progressColor = `hsl(${hue}, 100%, 50%)`;
+
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+      className={`${styles.paddingX} w-full flex items-center py-4 fixed top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-black/30 backdrop-blur-lg shadow-md" : "bg-transparent"
       }`}
     >
+      {/* Scroll Progress Bar */}
+      <div
+        className="absolute top-0 left-0 h-[3px] shadow-[0_0_10px_rgba(0,0,0,0.4)] transition-all duration-150"
+        style={{
+          width: `${scrollProgress}%`,
+          background: `linear-gradient(90deg, ${progressColor}, #ffffff)`,
+          boxShadow: `0 0 10px ${progressColor}`,
+        }}
+      ></div>
+
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        {/* Left side logo + text */}
+        {/* Left: Logo & Title */}
         <div className="flex items-center gap-2">
           <Link
             to="/"
@@ -38,20 +56,26 @@ const Navbar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-            <p className="text-white text-[18px] font-bold cursor-pointer">
+            <img
+              src={logo}
+              alt="logo"
+              className="w-11 h-11 object-contain drop-shadow-[0_0_10px_#00f7ff]"
+            />
+            <p className="text-white text-[20px] font-extrabold tracking-wide cursor-pointer hover:text-cyan-300 transition-colors duration-300">
               Satwik{" "}
-              <span className="sm:block hidden">| Full Stack Developer</span>
+              <span className="sm:block hidden font-light text-gray-300">
+                | Full Stack Developer
+              </span>
             </p>
           </Link>
 
           {/* Social icons */}
-          <span className="flex gap-3 ml-4">
+          <span className="flex gap-4 ml-4">
             <a
               href="https://github.com/satwik12dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-400 text-xl"
+              className="text-white text-xl hover:text-cyan-300 transition duration-300 hover:drop-shadow-[0_0_8px_#00f7ff]"
             >
               <FaGithub />
             </a>
@@ -60,7 +84,7 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/satwik-12-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 text-xl"
+              className="text-white text-xl hover:text-blue-400 transition duration-300 hover:drop-shadow-[0_0_8px_#1DA1F2]"
             >
               <FaLinkedin />
             </a>
@@ -69,24 +93,25 @@ const Navbar = () => {
               href="/Resume2.docx"
               rel="noopener noreferrer"
               target="_blank"
-              className="text-white hover:text-green-400 text-xl"
+              className="text-white text-xl hover:text-green-400 transition duration-300 hover:drop-shadow-[0_0_8px_#00ff7f]"
             >
               <FaDownload />
             </a>
           </span>
         </div>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Nav */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              className={`relative group ${
+                active === nav.title ? "text-cyan-300" : "text-gray-300"
+              } hover:text-cyan-300 transition duration-300 text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </li>
           ))}
         </ul>
@@ -96,24 +121,25 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain"
+            className="w-[28px] h-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
 
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } flex-col gap-6 p-6 absolute top-20 right-4 min-w-[200px] rounded-xl
+              bg-black/40 backdrop-blur-lg shadow-2xl border border-white/20 animate-fade-in`}
           >
-            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
+            <ul className="list-none flex flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
+                    active === nav.title ? "text-cyan-300" : "text-gray-300"
+                  } hover:text-cyan-300 transition duration-300`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >
@@ -121,7 +147,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-
           </div>
         </div>
       </div>

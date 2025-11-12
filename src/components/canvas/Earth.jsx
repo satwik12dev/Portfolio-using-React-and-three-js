@@ -15,13 +15,12 @@ const Earth = () => {
   return (
     <primitive
       object={earth.scene}
-      scale={1.5}         // slightly smaller
+      scale={1.5} 
       position-y={0}
-      rotation-y={0}
+      rotation-y={0}g
     />
   );
-};
-
+}; 
 const EarthCanvas = () => {
   return (
     <ErrorBoundary FallbackComponent={Fallback}>
