@@ -25,7 +25,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Dynamic color: hue based on scroll position (0–360 degrees)
   const hue = (scrollProgress * 3.6) % 360;
   const progressColor = `hsl(${hue}, 100%, 50%)`;
 
@@ -35,7 +34,6 @@ const Navbar = () => {
         scrolled ? "bg-black/30 backdrop-blur-lg shadow-md" : "bg-transparent"
       }`}
     >
-      {/* Scroll Progress Bar */}
       <div
         className="absolute top-0 left-0 h-[3px] shadow-[0_0_10px_rgba(0,0,0,0.4)] transition-all duration-150"
         style={{
@@ -44,9 +42,7 @@ const Navbar = () => {
           boxShadow: `0 0 10px ${progressColor}`,
         }}
       ></div>
-
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        {/* Left: Logo & Title */}
         <div className="flex items-center gap-2">
           <Link
             to="/"
@@ -68,8 +64,6 @@ const Navbar = () => {
               </span>
             </p>
           </Link>
-
-          {/* Social icons */}
           <span className="flex gap-4 ml-4">
             <a
               href="https://github.com/satwik12dev"
@@ -79,7 +73,6 @@ const Navbar = () => {
             >
               <FaGithub />
             </a>
-
             <a
               href="https://www.linkedin.com/in/satwik-12-dev"
               target="_blank"
@@ -88,19 +81,16 @@ const Navbar = () => {
             >
               <FaLinkedin />
             </a>
-
             <a
-              href="/Resume2.docx"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-white text-xl hover:text-green-400 transition duration-300 hover:drop-shadow-[0_0_8px_#00ff7f]"
-            >
-              <FaDownload />
-            </a>
+  href="/Resume2.pdf"
+  download="Satwik_Resume.pdf"
+  className="text-white text-xl hover:text-green-400 transition duration-300 hover:drop-shadow-[0_0_8px_#00ff7f]"
+>
+  <FaDownload />
+</a>
+
           </span>
         </div>
-
-        {/* Desktop Nav */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
@@ -115,8 +105,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Mobile Menu */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
@@ -124,7 +112,6 @@ const Navbar = () => {
             className="w-[28px] h-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
-
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -153,5 +140,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;

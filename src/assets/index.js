@@ -23,7 +23,7 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/three.png";
 import kubernetes from "./tech/kubernetes.png";
-import  SpringBoot from "./tech/sprin_boot.png";
+import SpringBoot from "./tech/sprin_boot.png";
 
 
 import meta from "./company/meta.png";
@@ -34,7 +34,37 @@ import tesla from "./truck.png";
 import carrent from "./Ezytranship.png";
 import jobit from "./cat.png";
 import tripguide  from "./filehider.png";
+
+
+import AWS from "./cert/AWS.png";
+import Clouds from "./cert/Cloud.png";
+import Java from "./cert/java.png";
+import TCS from "./cert/TCA.png";
+import PEBL from "./cert/PEBL.png";
+import Agile from "./cert/Agile.png";
+
+import aws from "./icons/aws.png";
+import cloud from "./icons/cloud.png";
+import javax from "./icons/java.png";
+import ibm from "./icons/ibm.png";
+import agile from "./icons/agile.png";
+import tcs from "./icons/tcs.png";
+import CA from "./cert/CA.png";
+import ca from "./icons/ca.png";
 export {
+  ca,
+  CA,
+  javax,
+  agile,
+  tcs,
+  ibm,
+  cloud,
+  aws,
+  Java,
+  Agile,
+  PEBL,
+  TCS,
+  Clouds,
   logo,
   backend,
   creator,
@@ -66,4 +96,5 @@ export {
   tripguide,
   kubernetes,
   SpringBoot,
+  AWS,
 };

@@ -6,7 +6,6 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { fadeIn, textVariant } from "../utils/motion";
-import profileImg from "../assets/f2.png";
 
 
 
@@ -63,13 +62,7 @@ const About = () => {
           </motion.p>
         </div>
 
-        {/* Right side: image */}
-        <motion.img
-          src={profileImg}
-          alt="profile"
-          className="mt-6 md:mt-0 md:ml-10 w-80 h-80 object-cover shadow-lg rounded-[20px]
-             transition-transform duration-500 ease-in-out hover:scale-110"
-        />
+
 
       </motion.div>
 

@@ -1,5 +1,17 @@
 import { tiledLights } from "three/examples/jsm/tsl/lighting/TiledLightsNode.js";
 import {
+  CA,
+  aws,
+  ca,
+  cloud,
+  javax,
+  tcs,
+  ibm,
+  agile,
+  Java,
+  TCS,
+  PEBL,
+  Agile,
   mobile,
   backend,
   creator,
@@ -23,9 +35,13 @@ import {
   kubernetes,
   jobit,
   tripguide,
+  AWS,
   SpringBoot,
+  Clouds,
 } from "../assets";
 import { color } from "framer-motion";
+import { Cloud } from "lucide-react";
+import { title } from "framer-motion/client";
 
 export const navLinks = [
   {
@@ -46,7 +62,14 @@ export const navLinks = [
     id:"mywork",
     title:"Projects",
   },
-
+  {
+  id :"certificates",
+  title:"Certificates",
+  },
+  {
+    id :"testimonials",
+    title:"Feedbacks",
+  },
   {
     id: "contact",
     title: "Contact",
@@ -169,19 +192,6 @@ const experiences = [
       "Tested and optimized the application for reliability, performance, and security."
     ],
   },
-  // {
-  //   title: "Full stack Developer",
-  //   company_name: "Meta",
-  //   icon: meta,
-  //   iconBg: "#E6DEDD",
-  //   date: "Jan 2023 - Present",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
 ];
 
 const testimonials = [
@@ -191,7 +201,7 @@ const testimonials = [
     name: "Sara Lee",
     designation: "CFO",
     company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
     testimonial:
@@ -199,7 +209,7 @@ const testimonials = [
     name: "Chris Brown",
     designation: "COO",
     company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    image: "https://randomuser.me/api/portraits/men/39.jpg",
   },
   {
     testimonial:
@@ -207,7 +217,7 @@ const testimonials = [
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    image: "https://randomuser.me/api/portraits/men/37.jpg",
   },
 ];
 
@@ -284,5 +294,86 @@ const projects = [
     source_code_link: "https://github.com/satwik12dev/File-Hider.git",
 },
 ];
+const certificates = [
+  {
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "May 2025",
+    image: AWS,
+    icon: aws, // 👈 Icon for timeline circle
+    link: "https://aws.amazon.com/certification/",
+    description:
+      "Validated understanding of AWS Cloud fundamentals, pricing, and core services.",
+    tags: ["Cloud", "AWS", "Fundamentals"],
+  },
+  {
+    title: "Introduction to Cloud",
+    issuer: "IBM",
+    date: "July 2025",
+    image: Clouds,
+    icon: cloud, // 👈
+    link: "https://courses.cognitiveclass.ai/certificates/b24e468eea0e46c8bd51d8bff82b0a52",
+    description:
+      "Hands-on training on Generative AI, Vertex AI, and responsible AI practices.",
+    tags: ["AI", "Generative AI", "Vertex AI"],
+  },
+  {
+    title: "Java Developer Certification",
+    issuer: "IBM",
+    date: "June 2025",
+    image: Java,
+    icon: javax,
+    link: "https://courses.tmu.skillsnetwork.site/certificates/c3822a5e81324739889ec2ee7e3aa8dd",
+    description:
+      "Demonstrated expertise in Java programming, OOP concepts, and backend systems.",
+    tags: ["Java", "OOP", "Backend"],
+  },
+  {
+    title: "Agile Methodology Certification",
+    issuer: "IBM",
+    date: "Jan 2025",
+    image: Agile,
+    icon: agile,
+    link: "https://courses.tmu.skillsnetwork.site/certificates/107b567540234d76bc0477e1c8ca5fae",
+    description:
+      "Demonstrated expertise in Agile methodology, Version Control Systems, and Docker.",
+    tags: ["Agile", "Git Bash", "Docker"],
+  },
+  {
+    title: "TCS ION Career Edge - Interview & Job Readiness",
+    issuer: "TCS iON",
+    date: "July 2025",
+    image: TCS,
+    icon: tcs,
+    link: TCS,
+    description:
+      "Demonstrated expertise in Soft Skills, MS Office, and Personality Development.",
+    tags: ["Soft Skills", "MS Office", "Personality Making"],
+  },
+  {
+    title: "Project-Based Experiential Learning (PBEL) / Virtual Internship",
+    issuer: "IBM",
+    date: "July 2025",
+    image: PEBL,
+    icon: ibm,
+    link: "https://courses.ibmmooc.skillsnetwork.site/certificates/242ddeb87eef4496bef78e0bcd101932",
+    description:
+      "Demonstrated expertise in AI, ML, Python, Kaggle, Convolutional Neural Networks, and Deep Learning.",
+    tags: ["Python", "AI & ML", "CNN & DL", "Kaggle"],
+  },
+{
+  title: "Computer Architecture",
+  issuer: "Swayam NPTEL",
+  date: "Jul - Oct 2025",
+  image: CA,
+  icon:ca,
+  link: CA, // 👈 Add certificate link or image path
+  description:
+    "Successfully completed a 12-week NPTEL course on Computer Architecture, gaining strong knowledge of processor design, memory hierarchy, instruction sets, and performance optimization concepts.",
+  tags: ["Computer Architecture", "NPTEL", "System Design"],
+}
 
-export { services, technologies, experiences, testimonials, projects };
+];
+
+
+export { services, technologies, experiences, testimonials, projects, certificates };

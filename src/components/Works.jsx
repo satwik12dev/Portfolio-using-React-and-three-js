@@ -1,13 +1,10 @@
-import React from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-
 const ProjectCard = ({
   index,
   name,
@@ -26,7 +23,6 @@ const ProjectCard = ({
         }}
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full flex flex-col justify-between'
       >
-        {/* Responsive Project Image */}
         <div className='relative w-full'>
           <img
             src={image}
@@ -46,14 +42,10 @@ const ProjectCard = ({
             </div>
           </div>
         </div>
-
-        {/* Project Info */}
         <div className='mt-5'>
           <h3 className='text-white font-bold text-[24px]'>{name}</h3>
           <p className='mt-2 text-secondary text-[14px]'>{description}</p>
         </div>
-
-        {/* Project Tags */}
         <div className='mt-4 flex flex-wrap gap-2'>
           {tags.map((tag) => (
             <p
@@ -63,12 +55,12 @@ const ProjectCard = ({
               #{tag.name}
             </p>
           ))}
+
         </div>
       </Tilt>
     </motion.div>
   );
 };
-
 const Works = () => {
   return (
     <>
@@ -99,5 +91,4 @@ const Works = () => {
     </>
   );
 };
-
 export default SectionWrapper(Works, "mywork");

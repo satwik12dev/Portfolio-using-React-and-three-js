@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
-import { ReactTyped } from "react-typed"; // ✅ use named import
+import { ReactTyped } from "react-typed";
+import TrueFocus from "./TrueFocus"; 
 
 const Hero = () => {
   return (
@@ -26,8 +26,16 @@ const Hero = () => {
           >
             <h1 className={`${styles.heroHeadText} text-white`}>
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-[#15B3EC] via-[#6E54EF] to-[#E054FF] bg-clip-text text-transparent animate-gradient-x">
-                Satwik Saxena
+              {/* ✅ Animated name using TrueFocus */}
+              <span className="inline-block ml-2">
+                <TrueFocus
+                  sentence="Satwik Saxena"
+                  blurAmount={6}
+                  borderColor="#915EFF"
+                  glowColor="rgba(145, 94, 255, 1)"
+                  animationDuration={0.6}
+                  pauseBetweenAnimations={1}
+                />
               </span>
             </h1>
           </motion.div>
@@ -57,31 +65,6 @@ const Hero = () => {
             />
           </motion.p>
         </div>
-      </div>
-
-      {/* Background 3D Canvas */}
-      <ComputersCanvas />
-
-      {/* Scroll Indicator */}
-      <div className="absolute xs:bottom-10 bottom-24 w-full flex justify-center items-center">
-        <a href="#about">
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="w-[38px] h-[68px] rounded-3xl border-4 border-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-[2px] shadow-[0_0_20px_rgba(56,189,248,0.7)]"
-          >
-            <div className="w-full h-full rounded-2xl bg-black flex justify-center items-start">
-              <motion.div
-                animate={{ y: [0, 24, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 mb-1 shadow-[0_0_10px_rgba(56,189,248,0.7)]"
-              />
-            </div>
-          </motion.div>
-        </a>
       </div>
     </section>
   );
