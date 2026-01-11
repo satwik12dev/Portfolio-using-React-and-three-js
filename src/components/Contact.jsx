@@ -24,35 +24,40 @@ const Contact = () => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      alert("Please fill all fields");
+      alert("❌ Please fill in all fields before submitting.");
       return;
     }
 
     setLoading(true);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .send(
+        "service_ozb1tjb",       
+        "template_z2sh3n4",      
+        {
+          from_name: form.name,     
+          from_email: form.email,  
+          message: form.message,     
         },
-        body: JSON.stringify(form),
-      });
+        "qSPed8HUlZNlAq3ff"    
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("✅ Thank you. I will get back to you as soon as possible.");
 
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("✅ Message sent successfully!");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        alert(data.message || "❌ Something went wrong");
-      }
-    } catch (error) {
-      console.error("Contact error:", error);
-      alert("❌ Server error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error("EmailJS error:", error);
+          alert("❌ Something went wrong. Please try again.");
+        }
+      );
   };
 
   return (

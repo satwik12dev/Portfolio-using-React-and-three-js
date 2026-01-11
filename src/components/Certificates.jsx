@@ -48,6 +48,11 @@ const CertificateCard = ({ certificate }) => {
         <p className="text-gray-300 text-[16px] font-semibold" style={{ margin: 0 }}>
           {certificate.issuer}
         </p>
+<<<<<<< HEAD
+=======
+
+        {/* Certificate Image */}
+>>>>>>> d7aa104b9ff7c87c4c8c260c142913f34cd0f141
         {certificate.image && (
           <img
             src={certificate.image}
@@ -56,6 +61,11 @@ const CertificateCard = ({ certificate }) => {
           />
         )}
       </div>
+<<<<<<< HEAD
+=======
+
+      {/* Description */}
+>>>>>>> d7aa104b9ff7c87c4c8c260c142913f34cd0f141
       {certificate.description && Array.isArray(certificate.description) ? (
         <ul className="mt-5 list-disc ml-5 space-y-2">
           {certificate.description.map((point, index) => (
@@ -74,6 +84,11 @@ const CertificateCard = ({ certificate }) => {
           </p>
         )
       )}
+<<<<<<< HEAD
+=======
+
+      {/* View Certificate Link */}
+>>>>>>> d7aa104b9ff7c87c4c8c260c142913f34cd0f141
       {certificate.link && (
         <div className="mt-3">
           <a
@@ -89,6 +104,10 @@ const CertificateCard = ({ certificate }) => {
     </VerticalTimelineElement>
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7aa104b9ff7c87c4c8c260c142913f34cd0f141
 const Certificates = () => {
   return (
     <>
@@ -120,4 +139,9 @@ const Certificates = () => {
     </>
   );
 };
+<<<<<<< HEAD
 export default SectionWrapper(Certificates, "certificates");
+=======
+
+export default SectionWrapper(Certificates, "certificates");
+>>>>>>> d7aa104b9ff7c87c4c8c260c142913f34cd0f141
