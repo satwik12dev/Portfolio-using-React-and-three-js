@@ -7,7 +7,7 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import java from "./tech/java.png";
-
+import gra from "./resumeanalyser.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -34,6 +34,8 @@ import tesla from "./truck.png";
 import carrent from "./Ezytranship.png";
 import jobit from "./cat.png";
 import tripguide  from "./filehider.png";
+import gitauth from "./auth.png";
+import ra from "./icons/resumeanalyzer.png";
 
 
 import AWS from "./cert/AWS.png";
@@ -51,6 +53,12 @@ import agile from "./icons/agile.png";
 import tcs from "./icons/tcs.png";
 import CA from "./cert/CA.png";
 import ca from "./icons/ca.png";
+import auth from "./icons/auth.png";
+import email from "./Email.png";
+import iemail from "./icons/email.png";
+import gym from "./icons/gym.png";
+import crm from "./icons/crm.png"
+
 export {
   ca,
   CA,
@@ -97,4 +105,12 @@ export {
   kubernetes,
   SpringBoot,
   AWS,
+  auth,
+  gitauth,
+  ra,
+  gra,
+  email,
+  iemail,
+  gym,
+  crm
 };

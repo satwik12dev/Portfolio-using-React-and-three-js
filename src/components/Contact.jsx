@@ -17,47 +17,54 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      alert("❌ Please fill in all fields before submitting.");
+      alert("❌ Please fill in all fields.");
       return;
     }
 
     setLoading(true);
 
-    emailjs
-      .send(
-        "service_ozb1tjb",       
-        "template_z2sh3n4",      
+    try {
+      const response = await fetch(
+        "https://email-server-h3fp.onrender.com/api/contact",
         {
-          from_name: form.name,     
-          from_email: form.email,  
-          message: form.message,     
-        },
-        "qSPed8HUlZNlAq3ff"    
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("✅ Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error("EmailJS error:", error);
-          alert("❌ Something went wrong. Please try again.");
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
         }
       );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message");
+      }
+
+      alert("✅ Thank you! I will get back to you as soon as possible.");
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Contact API Error:", error);
+      alert("❌ Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,9 +77,14 @@ const Contact = () => {
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-        <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-12 flex flex-col gap-8"
+        >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
+            <span className="text-white font-medium mb-4">
+              Your Name
+            </span>
             <input
               type="text"
               name="name"
@@ -85,7 +97,9 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Email</span>
+            <span className="text-white font-medium mb-4">
+              Your Email
+            </span>
             <input
               type="email"
               name="email"
@@ -98,7 +112,9 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className="text-white font-medium mb-4">
+              Your Message
+            </span>
             <textarea
               rows={7}
               name="message"
@@ -112,7 +128,8 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            disabled={loading}
+            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-50"
           >
             {loading ? "Sending..." : "Send"}
           </button>

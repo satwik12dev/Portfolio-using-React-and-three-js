@@ -38,6 +38,14 @@ import {
   AWS,
   SpringBoot,
   Clouds,
+  auth,
+  gitauth,
+  ra,
+  gra,
+  email,
+  iemail,
+  gym,
+  crm,
 } from "../assets";
 import { color } from "framer-motion";
 import { Cloud } from "lucide-react";
@@ -57,18 +65,13 @@ export const navLinks = [
     id: "work",
     title: "Work",
   },
-
   {
     id:"mywork",
-    title:"Projects",
+    title:"Projects Links",
   },
   {
   id :"certificates",
   title:"Certificates",
-  },
-  {
-    id :"testimonials",
-    title:"Feedbacks",
   },
   {
     id: "contact",
@@ -78,7 +81,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Software Engineer",
     icon: web,
   },
   {
@@ -107,8 +110,7 @@ const technologies = [
   {
     name: "JavaScript",
     icon: javascript,
-  },
-  
+  },  
   {
     name: "React JS",
     icon: reactjs,
@@ -150,7 +152,6 @@ const technologies = [
     icon:SpringBoot,
   }
 ];
-
 const experiences = [
   {
     title: "Image classification of cats and dog",
@@ -192,33 +193,76 @@ const experiences = [
       "Tested and optimized the application for reliability, performance, and security."
     ],
   },
-];
-
-const testimonials = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    title: "Authentication & Task Management API with RBAC",
+    company_name: "Personal Project",
+    icon: auth,
+    iconBg: "#383E56",
+    date: "Dec 2026 - feb 2026",
+    points: [
+      "Built a secure full-stack Task Management application using React, Node.js, Express.js, and PostgreSQL.",
+      "Implemented JWT-based Authentication and Role-Based Access Control (RBAC) to manage user permissions and protect API endpoints.",
+      "Developed RESTful APIs for user registration, login, role management, and task CRUD operations with robust validation and error handling.",
+      "Integrated PostgreSQL for persistent data storage and optimized database queries for efficient task and user management.",
+      "Containerized the application using Docker and Docker Compose, and integrated Swagger API documentation for streamlined development and deployment."
+    ],
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Satwik does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/39.jpg",
-  },
+  title: "AI Resume Analyzer",
+  company_name: "Personal Project",
+  icon: ra,
+  iconBg: "#383E56",
+  date: "feb 2026 - Mar 2026",
+  points: [
+    "Developed an AI-powered Resume Analyzer using React.js, Node.js, Express.js, and MongoDB to evaluate resumes against job descriptions.",
+    "Integrated Google Gemini AI to generate ATS compatibility scores, identify missing keywords, and provide personalized resume improvement suggestions.",
+    "Built secure REST APIs for resume uploads, job description analysis, and AI-generated feedback with robust validation and error handling.",
+    "Implemented resume parsing and keyword matching algorithms to assess candidate-job alignment and highlight strengths and weaknesses.",
+    "Designed a responsive user interface with real-time analysis results, improving user experience and helping candidates optimize resumes for recruitment systems."
+  ],
+},
   {
-    testimonial:
-      "After Satwik optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/men/37.jpg",
-  },
+  title: "Email Generator Using Java Spring Boot, React.js, and Gemini AI",
+  company_name: "Personal Project",
+  icon: iemail,
+  iconBg: "#383E56",
+  date: "Mar 2026 - Apr 2026",
+  points: [
+    "Developed an AI-powered Email Generator using React.js, Spring Boot, and REST APIs to automatically generate professional email replies based on user input.",
+    "Integrated Large Language Models (Gemini AI/Llama) to create context-aware email responses with customizable tones such as professional, formal, friendly, and concise.",
+    "Built secure backend services using Spring Boot and WebClient to communicate with AI APIs, process requests, and return generated email content in real time.",
+    "Implemented robust exception handling, API validation, and response parsing to ensure reliable AI-generated outputs and seamless user experience.",
+    "Designed a responsive and user-friendly interface enabling users to generate, review, and customize email drafts efficiently, improving productivity and communication."
+  ],
+},
+{
+  title: "Gym Management CRM",
+  company_name: "ZymGo",
+  icon: gym,
+  iconBg: "#383E56",
+  date: "May 2026 - Present",
+  points: [
+    "Developed scalable backend services for a Gym Management CRM using Node.js, Express.js, and MySQL, supporting gym owners, staff, and administrators.",
+    "Designed and implemented 80+ secure REST APIs for authentication, role-based access control (RBAC), gym onboarding, member management, subscriptions, attendance, and payment workflows.",
+    "Optimized MySQL database architecture with 15+ relational tables, improving data consistency, query performance, and overall application scalability.",
+    "Built analytics and reporting modules featuring dashboard metrics, CSV export functionality, audit logs, and subscription management to streamline business operations.",
+    "Collaborated with the frontend team to integrate APIs, implement validation, enhance security, and deliver production-ready features with improved performance and reliability."
+  ],
+},
+{
+  title: "CRM Inventory Management System For Business Owners",
+  company_name: "Personal Project",
+  icon: crm,
+  iconBg: "#383E56",
+  date: "Jan 2026 - Feb 2026",
+  points: [
+    "Developed a full-stack Inventory Management CRM using React.js, Node.js, Express.js, and MySQL for efficient product and inventory management.",
+    "Built secure JWT-based authentication and authorization with REST APIs for user management, product CRUD operations, inventory tracking, and profile management.",
+    "Implemented image upload functionality using Multer, low-stock monitoring with automated email alerts, and activity tracking to improve inventory visibility.",
+    "Designed responsive dashboards displaying real-time inventory statistics, product analytics, stock status, and recent activities with an intuitive user interface.",
+    "Optimized backend APIs, database queries, validation, and error handling to deliver a scalable, reliable, and production-ready inventory management solution."
+  ],
+}
 ];
 
 const projects = [
@@ -293,6 +337,93 @@ const projects = [
     image: tripguide,
     source_code_link: "https://github.com/satwik12dev/File-Hider.git",
 },
+  {
+  name: "Auth System & Task Management API",
+  description:
+    "A full-stack task management platform built with React, Node.js, Express.js, and PostgreSQL. Features JWT-based authentication, Role-Based Access Control (RBAC), secure REST APIs, task CRUD operations, Swagger documentation, and Dockerized deployment.",
+  tags: [
+    {
+      name: "React.js",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "Node.js",
+      color: "green-text-gradient",
+    },
+    {
+      name: "PostgreSQL",
+      color: "pink-text-gradient",
+    },
+    {
+      name: "JWT",
+      color: "white-text-gradient",
+    },
+    {
+      name: "Docker",
+      color: "green-text-gradient",
+    },
+    {
+      name: "RBAC",
+      color: "blue-text-gradient",
+    },
+  ],
+  image: gitauth,
+  source_code_link: "https://github.com/satwik12dev/Auth-System-Task-API.git",
+},
+  {
+  name: "AI Resume Analyzer Using Generative AI",
+  description:
+    "An AI-powered Resume Analyzer built with React.js, Node.js, Express.js, and Google Gemini AI. It analyzes resumes against job descriptions, provides ATS compatibility scores, identifies missing keywords, highlights strengths and weaknesses, and generates actionable suggestions to improve resume performance.",
+  tags: [
+    {
+      name: "React.js",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "Node.js",
+      color: "green-text-gradient",
+    },
+    {
+      name: "Express.js",
+      color: "green-text-gradient",
+    },
+    {
+      name: "Gemini AI",
+      color: "pink-text-gradient",
+    },
+    {
+      name: "MongoDB",
+      color: "green-text-gradient",
+    },
+  ],
+  image: gra,
+  source_code_link: "https://github.com/satwik12dev/Gen-AI-Resume-Analyzer.git",
+},
+{
+  name: "Email Generator Using Java Spring Boot",
+  description:
+    "Developed a full-stack AI Email Generator using React.js and Spring Boot that automates email drafting through Generative AI. The platform generates personalized and context-aware email responses, supports customizable tones, integrates with LLM APIs using Spring WebClient, and delivers real-time content generation through a responsive user interface.",
+  tags: [
+    {
+      name: "React.js",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "Spring Boot",
+      color: "green-text-gradient",
+    },
+    {
+      name: "Java",
+      color: "orange-text-gradient",
+    },
+    {
+      name: "Gemini AI",
+      color: "pink-text-gradient",
+    },
+  ],
+  image: email,
+  source_code_link: "https://github.com/satwik12dev/Email-Generator-API-Using-Spring-Boot-and-Spring-AI.git",
+}
 ];
 const certificates = [
   {
@@ -300,7 +431,7 @@ const certificates = [
     issuer: "Amazon Web Services",
     date: "May 2025",
     image: AWS,
-    icon: aws, // 👈 Icon for timeline circle
+    icon: aws, 
     link: "https://aws.amazon.com/certification/",
     description:
       "Validated understanding of AWS Cloud fundamentals, pricing, and core services.",
@@ -311,7 +442,7 @@ const certificates = [
     issuer: "IBM",
     date: "July 2025",
     image: Clouds,
-    icon: cloud, // 👈
+    icon: cloud, 
     link: "https://courses.cognitiveclass.ai/certificates/b24e468eea0e46c8bd51d8bff82b0a52",
     description:
       "Hands-on training on Generative AI, Vertex AI, and responsible AI practices.",
@@ -367,13 +498,11 @@ const certificates = [
   date: "Jul - Oct 2025",
   image: CA,
   icon:ca,
-  link: CA, // 👈 Add certificate link or image path
+  link: CA, 
   description:
     "Successfully completed a 12-week NPTEL course on Computer Architecture, gaining strong knowledge of processor design, memory hierarchy, instruction sets, and performance optimization concepts.",
   tags: ["Computer Architecture", "NPTEL", "System Design"],
 }
-
 ];
 
-
-export { services, technologies, experiences, testimonials, projects, certificates };
+export { services, technologies, experiences, projects, certificates };

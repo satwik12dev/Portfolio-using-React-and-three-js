@@ -7,7 +7,6 @@ const FloatingIcon = ({ imgUrl }) => {
   const meshRef = useRef();
   const [texture] = useTexture([imgUrl]);
 
-  // Floating effect (gentle up & down)
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.position.y = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
